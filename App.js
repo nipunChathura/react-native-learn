@@ -1,19 +1,26 @@
-import React from 'react';
-import {Button, Linking, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
+  const [name, setName] = useState('Nipun');
+  const [session, setSession] = useState({number: 6, title: 'state'});
+  const [current, setCurrent] = useState(true);
+
+  const onClickHandler = () => {
+    setName('Nipun Chathuranga');
+    setSession({number: 7, title: 'Style'});
+    setCurrent(false);
+  };
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>Hello Nipun</Text>
-      <Text style={styles.text}>Hello Chathuranga</Text>
-      <Button
-        title="Click"
-        onPress={() => {
-          Linking.openURL(
-            'https://www.youtube.com/watch?v=aabjK4NkuTQ&ab_channel=DkdMusicStudio',
-          );
-        }}
-      />
+      <Text style={styles.text}>My Name is {name}</Text>
+      <Text style={styles.text}>
+        This is session number {session.number} and adout {session.title}
+      </Text>
+      <Text style={styles.text}>
+        {current ? 'current session' : 'next session'}
+      </Text>
+      <Button title="Click" onPress={onClickHandler} />
     </View>
   );
 };
