@@ -1,12 +1,7 @@
-import React, {useState} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
-  const [name, setName] = useState('Style Test');
-
-  const onClickHandler = () => {
-    setName('Style Test is Done');
-  };
   return (
     <View style={styles.body}>
       <View style={styles.view1}>
